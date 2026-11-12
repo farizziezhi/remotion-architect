@@ -1,0 +1,323 @@
+{
+  "metadata": {
+    "topic": "Asal Usul Nama Kota Palu: Bukan Palu Martil, Tapi Tanah yang Terangkat dari Dasar Laut?",
+    "durationMode": "60s",
+    "stylePreset": "joni-bongkar-cutaway",
+    "aspectRatio": "9:16",
+    "fps": 30,
+    "voice": "id-ID-ArdiNeural"
+  },
+  "contactSheet": {
+    "totalParts": 12,
+    "totalAssemblies": 4,
+    "assemblies": [
+      {
+        "id": "teluk_lembah_3d",
+        "label": "Topografi Lembah & Teluk Palu Purba",
+        "assemblyGroup": "geology",
+        "geometry": "box",
+        "args": [3.0, 0.4, 4.0],
+        "basePos": [0, -0.5, 0],
+        "explodeOffset": [0, -1.5, 0],
+        "materialKey": "structural"
+      },
+      {
+        "id": "sesar_palu_koro",
+        "label": "Garis Patahan Sesar Palu-Koro Aktif",
+        "assemblyGroup": "geology",
+        "geometry": "cylinder",
+        "args": [0.15, 0.15, 4.2, 16],
+        "basePos": [0, 0, 0],
+        "explodeOffset": [1.5, 0, 0],
+        "materialKey": "hazard_heat"
+      },
+      {
+        "id": "rumah_souraja",
+        "label": "Rumah Adat Kaili Souraja (Banua Mbaso)",
+        "assemblyGroup": "architecture",
+        "geometry": "box",
+        "args": [1.8, 1.4, 2.2],
+        "basePos": [0, 0.8, 0],
+        "explodeOffset": [0, 2.5, 0],
+        "materialKey": "core_component"
+      },
+      {
+        "id": "pohon_volo_flora",
+        "label": "Rumpun Bambu Volo & Flora Muara Sungai",
+        "assemblyGroup": "nature",
+        "geometry": "cylinder",
+        "args": [0.2, 0.2, 2.0, 16],
+        "basePos": [-1.2, 0.4, 0.8],
+        "explodeOffset": [-2.0, 1.0, 0],
+        "materialKey": "control_bms"
+      }
+    ],
+    "uiCards": [
+      {
+        "id": "card_3tahap_evolusi",
+        "cardType": "ThreeStageFlowCard",
+        "title": "3 Tahap Asal Usul Nama Palu",
+        "payload": {
+          "steps": [
+            "1. Teluk Laut Purba",
+            "2. Topalu'e (Tanah Terangkat)",
+            "3. Pemukiman Adat Kaili"
+          ]
+        }
+      },
+      {
+        "id": "card_verdict_mitos",
+        "cardType": "ComparisonVerdictCard",
+        "title": "Mitos Martil vs Fakta Geologi",
+        "payload": {
+          "left": "Mitos: Dari Palu Godam / Martil Besi",
+          "right": "Fakta: Dari Topalu'e (Tanah Terangkat)",
+          "verdict": "FAKTA BAHASA KAILI"
+        }
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene_01_hook",
+      "timeSec": 0.0,
+      "durationSec": 3.8,
+      "rhythmTag": "AKSI",
+      "narration": "Pernahkah kamu berpikir, kenapa ibukota Sulawesi Tengah ini dinamakan Kota Palu?",
+      "highlights": ["Kota Palu"],
+      "rigState": {
+        "explodeFactor": 0.0,
+        "xrayClip": 0.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": [],
+        "sfxCue": "electric_hum"
+      }
+    },
+    {
+      "id": "scene_02_klaim_mitos",
+      "timeSec": 3.8,
+      "durationSec": 4.2,
+      "rhythmTag": "JEDA",
+      "narration": "Banyak yang mengira namanya berasal dari alat pemukul martil atau palu besi. Ternyata, itu cuma mitos!",
+      "highlights": ["martil", "cuma mitos"],
+      "rigState": {
+        "explodeFactor": 0.1,
+        "xrayClip": 0.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": [],
+        "sfxCue": "ui_pop"
+      }
+    },
+    {
+      "id": "scene_03_banner_bongkar",
+      "timeSec": 8.0,
+      "durationSec": 3.5,
+      "rhythmTag": "AKSI",
+      "narration": "Ayo kita bongkar rahasia geologi dan sejarah suku Kaili di baliknya!",
+      "highlights": ["Ayo kita bongkar", "suku Kaili"],
+      "rigState": {
+        "explodeFactor": 0.3,
+        "xrayClip": 0.4,
+        "cameraPose": "iso-wide",
+        "activeCallouts": ["teluk_lembah_3d"],
+        "sfxCue": "whoosh_xray"
+      }
+    },
+    {
+      "id": "scene_04_geologi_laut",
+      "timeSec": 11.5,
+      "durationSec": 4.0,
+      "rhythmTag": "AKSI",
+      "narration": "Ribuan tahun lalu, kawasan lembah Palu sebenarnya adalah lautan dan teluk yang sangat dalam.",
+      "highlights": ["lautan", "teluk dalam"],
+      "rigState": {
+        "explodeFactor": 0.2,
+        "xrayClip": 0.8,
+        "cameraPose": "cross-section",
+        "activeCallouts": ["teluk_lembah_3d"],
+        "sfxCue": "whoosh_xray"
+      }
+    },
+    {
+      "id": "scene_05_sesar_terangkat",
+      "timeSec": 15.5,
+      "durationSec": 4.5,
+      "rhythmTag": "AKSI",
+      "narration": "Pergerakan lempeng Sesar Palu-Koro yang aktif mendorong dasar laut naik ke atas permukaan.",
+      "highlights": ["Sesar Palu-Koro", "naik ke atas"],
+      "rigState": {
+        "explodeFactor": 0.6,
+        "xrayClip": 0.5,
+        "cameraPose": "iso-tight",
+        "activeCallouts": ["sesar_palu_koro"],
+        "sfxCue": "servo_explode"
+      }
+    },
+    {
+      "id": "scene_06_makna_topalue",
+      "timeSec": 20.0,
+      "durationSec": 4.2,
+      "rhythmTag": "FOKUS",
+      "narration": "Dalam bahasa asli suku Kaili, fenomena tanah yang terangkat ini disebut Topalu'e!",
+      "highlights": ["Topalu'e", "tanah yang terangkat"],
+      "rigState": {
+        "explodeFactor": 0.8,
+        "xrayClip": 0.0,
+        "cameraPose": "macro-core",
+        "activeCallouts": ["teluk_lembah_3d"],
+        "sfxCue": "ui_pop"
+      }
+    },
+    {
+      "id": "scene_07_bukti_fosil",
+      "timeSec": 24.2,
+      "durationSec": 4.0,
+      "rhythmTag": "AKSI",
+      "narration": "Buktinya, fosil kerang dan endapan terumbu karang laut purba masih ditemukan di lereng perbukitan Palu.",
+      "highlights": ["fosil kerang", "terumbu karang"],
+      "rigState": {
+        "explodeFactor": 0.7,
+        "xrayClip": 0.3,
+        "cameraPose": "macro-core",
+        "activeCallouts": [],
+        "sfxCue": null
+      }
+    },
+    {
+      "id": "scene_08_card_tahap",
+      "timeSec": 28.2,
+      "durationSec": 3.8,
+      "rhythmTag": "JEDA",
+      "narration": "Dari lautan teluk, terangkat jadi daratan subur, hingga dihuni oleh leluhur Kaili.",
+      "highlights": ["daratan subur", "leluhur Kaili"],
+      "rigState": {
+        "explodeFactor": 0.4,
+        "xrayClip": 0.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": [],
+        "sfxCue": "ui_pop"
+      }
+    },
+    {
+      "id": "scene_09_versi_bambu_volo",
+      "timeSec": 32.0,
+      "durationSec": 4.2,
+      "rhythmTag": "AKSI",
+      "narration": "Ada juga versi kedua: kata Palu berasal dari kata Volo, yaitu rumpun bambu yang lebat di muara sungai.",
+      "highlights": ["Volo", "rumpun bambu"],
+      "rigState": {
+        "explodeFactor": 0.5,
+        "xrayClip": 0.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": ["pohon_volo_flora"],
+        "sfxCue": "whoosh_xray"
+      }
+    },
+    {
+      "id": "scene_10_sungai_palu",
+      "timeSec": 36.2,
+      "durationSec": 3.8,
+      "rhythmTag": "AKSI",
+      "narration": "Muara Sungai Palu menjadi pelabuhan dagang utama bagi pelaut Mandar, Bugis, dan pedagang nusantara.",
+      "highlights": ["pelabuhan dagang", "Sungai Palu"],
+      "rigState": {
+        "explodeFactor": 0.3,
+        "xrayClip": 0.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": [],
+        "sfxCue": null
+      }
+    },
+    {
+      "id": "scene_11_souraja_arsitektur",
+      "timeSec": 40.0,
+      "durationSec": 4.2,
+      "rhythmTag": "AKSI",
+      "narration": "Kerajaan Palu kemudian mendirikan Banua Mbaso atau Souraja, istana kayu megah di Kampung Lere.",
+      "highlights": ["Souraja", "Banua Mbaso"],
+      "rigState": {
+        "explodeFactor": 0.6,
+        "xrayClip": 0.2,
+        "cameraPose": "iso-tight",
+        "activeCallouts": ["rumah_souraja"],
+        "sfxCue": "servo_explode"
+      }
+    },
+    {
+      "id": "scene_12_kearifan_gempa",
+      "timeSec": 44.2,
+      "durationSec": 4.0,
+      "rhythmTag": "AKSI",
+      "narration": "Rumah adat ini dibangun dengan pasak kayu tanpa paku, sebagai bukti kearifan leluhur merespons gempa bumi.",
+      "highlights": ["pasak kayu", "merespons gempa"],
+      "rigState": {
+        "explodeFactor": 0.9,
+        "xrayClip": 0.5,
+        "cameraPose": "macro-core",
+        "activeCallouts": ["rumah_souraja"],
+        "sfxCue": "servo_explode"
+      }
+    },
+    {
+      "id": "scene_13_4_kampung_patanggota",
+      "timeSec": 48.2,
+      "durationSec": 3.8,
+      "rhythmTag": "AKSI",
+      "narration": "Empat kampung adat bersatu membentuk dewan Patanggota untuk menjaga keharmonisan lembah Palu.",
+      "highlights": ["Patanggota", "keharmonisan"],
+      "rigState": {
+        "explodeFactor": 0.3,
+        "xrayClip": 0.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": [],
+        "sfxCue": null
+      }
+    },
+    {
+      "id": "scene_14_card_duel_verdict",
+      "timeSec": 52.0,
+      "durationSec": 4.0,
+      "rhythmTag": "JEDA",
+      "narration": "Jadi jelas, nama Palu bukan karena kota ini pembuat palu martil, melainkan dari kata Topalu'e!",
+      "highlights": ["bukan pembuat martil", "Topalu'e"],
+      "rigState": {
+        "explodeFactor": 0.2,
+        "xrayClip": 0.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": [],
+        "sfxCue": "verdict_stamp"
+      }
+    },
+    {
+      "id": "scene_15_kota_5_dimensi",
+      "timeSec": 56.0,
+      "durationSec": 4.0,
+      "rhythmTag": "AKSI",
+      "narration": "Kini Palu berdiri megah sebagai kota unik lima dimensi: teluk, lembah, sungai, bukit, dan pegunungan.",
+      "highlights": ["kota lima dimensi", "teluk, lembah, sungai"],
+      "rigState": {
+        "explodeFactor": 0.0,
+        "xrayClip": 0.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": [],
+        "sfxCue": "whoosh_xray"
+      }
+    },
+    {
+      "id": "scene_16_cta_closing",
+      "timeSec": 60.0,
+      "durationSec": 3.5,
+      "rhythmTag": "FOKUS",
+      "narration": "Sekarang kamu sudah tahu sejarah aslinya! Mau kita bongkar asal usul kota mana lagi berikutnya?",
+      "highlights": ["sejarah aslinya", "bongkar asal usul kota"],
+      "rigState": {
+        "explodeFactor": 0.0,
+        "xrayClip": 0.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": [],
+        "sfxCue": "ui_pop"
+      }
+    }
+  ]
+}
+
