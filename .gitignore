@@ -1,0 +1,31 @@
+# Node & Remotion
+node_modules/
+.remotion/
+out/
+build/
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Jupyter & Colab
+.ipynb_checkpoints/
+*.zip
+
+# Public generated audio (optional - comment if you want to commit generated audio)
+# public/audio/*.mp3
+# public/audio/*.wav
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+

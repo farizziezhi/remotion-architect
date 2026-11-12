@@ -1,0 +1,180 @@
+{
+  "metadata": {
+    "topic": "Bongkar Cara Kerja Baterai Sepeda Motor Listrik: Kenapa Bisa Terbakar Saat Thermal Runaway?",
+    "durationMode": "60s",
+    "stylePreset": "taken-apart-blueprint",
+    "aspectRatio": "16:9",
+    "fps": 30,
+    "voice": "id-ID-ArdiNeural"
+  },
+  "contactSheet": {
+    "totalParts": 18,
+    "totalAssemblies": 5,
+    "assemblies": [
+      {
+        "id": "outer_shell",
+        "label": "Tabung Baja Pelindung (Nickel-Plated Steel Casing)",
+        "assemblyGroup": "casing",
+        "geometry": "cylinder",
+        "args": [1.1, 1.1, 3.2, 32],
+        "basePos": [0, 0, 0],
+        "explodeOffset": [0, 3.5, 0],
+        "materialKey": "shell",
+        "isOuterShell": true
+      },
+      {
+        "id": "jelly_roll_anode",
+        "label": "Gulungan Anoda Grafit (Anode Graphite Roll)",
+        "assemblyGroup": "core",
+        "geometry": "cylinder",
+        "args": [0.85, 0.85, 2.8, 32],
+        "basePos": [0, 0, 0],
+        "explodeOffset": [0, 0, 0],
+        "materialKey": "core_component"
+      },
+      {
+        "id": "separator_membrane",
+        "label": "Membran Separator Keramik (Micro-Porous Separator)",
+        "assemblyGroup": "core",
+        "geometry": "cylinder",
+        "args": [0.92, 0.92, 2.9, 32],
+        "basePos": [0, 0, 0],
+        "explodeOffset": [1.8, 0, 0],
+        "materialKey": "medium_fluid"
+      },
+      {
+        "id": "bms_circuit_board",
+        "label": "Modul Proteksi BMS & Sensor Termal",
+        "assemblyGroup": "electronics",
+        "geometry": "box",
+        "args": [1.8, 0.1, 1.8],
+        "basePos": [0, 1.8, 0],
+        "explodeOffset": [0, 2.2, 0],
+        "materialKey": "control_bms"
+      },
+      {
+        "id": "top_cap_vent",
+        "label": "Katup Tekanan Otomatis (CID & Gas Relief Vent)",
+        "assemblyGroup": "cap",
+        "geometry": "cylinder",
+        "args": [0.95, 0.95, 0.3, 32],
+        "basePos": [0, 1.6, 0],
+        "explodeOffset": [0, 4.5, 0],
+        "materialKey": "hazard_heat"
+      }
+    ],
+    "uiCards": [
+      {
+        "id": "card_thermal_stages",
+        "cardType": "ThreeStageFlowCard",
+        "title": "3 Tahap Reaksi Thermal Runaway",
+        "payload": {
+          "steps": ["Separator Robek (80°C)", "Short Circuit Dalam (130°C)", "Ledakan Oksigen (200°C+)"]
+        }
+      },
+      {
+        "id": "card_bms_verdict",
+        "cardType": "ComparisonVerdictCard",
+        "title": "Baterai Murah vs Baterai Standar SNI",
+        "payload": {
+          "left": "Tanpa Sensor Panas / BMS Polos",
+          "right": "Smart BMS Cut-Off Otomatis",
+          "verdict": "AMAN"
+        }
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene_01_hook",
+      "timeSec": 0.0,
+      "durationSec": 4.0,
+      "rhythmTag": "AKSI",
+      "narration": "Pernahkah kamu berpikir, kenapa baterai motor listrik bisa tiba-tiba terbakar hebat hanya karena bocor sedikit?",
+      "highlights": ["tiba-tiba terbakar", "bocor"],
+      "rigState": {
+        "explodeFactor": 0.0,
+        "xrayClip": 0.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": [],
+        "sfxCue": "electric_hum"
+      }
+    },
+    {
+      "id": "scene_02_xray",
+      "timeSec": 4.0,
+      "durationSec": 4.5,
+      "rhythmTag": "AKSI",
+      "narration": "Mari kita bongkar isi silinder sel baterai lithium-ion 21700 ini.",
+      "highlights": ["bongkar isi", "lithium-ion 21700"],
+      "rigState": {
+        "explodeFactor": 0.0,
+        "xrayClip": 0.85,
+        "cameraPose": "cross-section",
+        "activeCallouts": ["outer_shell"],
+        "sfxCue": "whoosh_xray"
+      }
+    },
+    {
+      "id": "scene_03_explode",
+      "timeSec": 8.5,
+      "durationSec": 5.0,
+      "rhythmTag": "AKSI",
+      "narration": "Di dalamnya ada lima komponen utama yang terpisah dengan sangat presisi.",
+      "highlights": ["lima komponen", "terpisah"],
+      "rigState": {
+        "explodeFactor": 1.0,
+        "xrayClip": 1.0,
+        "cameraPose": "iso-wide",
+        "activeCallouts": ["outer_shell", "jelly_roll_anode", "separator_membrane", "top_cap_vent"],
+        "sfxCue": "servo_explode"
+      }
+    },
+    {
+      "id": "scene_04_focus_separator",
+      "timeSec": 13.5,
+      "durationSec": 5.5,
+      "rhythmTag": "FOKUS",
+      "narration": "Kuncinya ada di lembaran tipis ini: membran separator berukuran mikron yang memisahkan kutub positif dan negatif.",
+      "highlights": ["membran separator", "kutub positif dan negatif"],
+      "rigState": {
+        "explodeFactor": 0.8,
+        "xrayClip": 1.0,
+        "cameraPose": "macro-core",
+        "activeCallouts": ["separator_membrane"],
+        "sfxCue": "ui_pop"
+      }
+    },
+    {
+      "id": "scene_05_thermal_hazard",
+      "timeSec": 19.0,
+      "durationSec": 5.0,
+      "rhythmTag": "AKSI",
+      "narration": "Jika baterai terjatuh atau overcharging, separator ini meleleh. Anoda dan katoda langsung bersentuhan!",
+      "highlights": ["separator meleleh", "bersentuhan"],
+      "rigState": {
+        "explodeFactor": 0.4,
+        "xrayClip": 1.0,
+        "cameraPose": "macro-core",
+        "activeCallouts": ["separator_membrane", "top_cap_vent"],
+        "sfxCue": "electric_hum"
+      }
+    },
+    {
+      "id": "scene_06_verdict",
+      "timeSec": 24.0,
+      "durationSec": 4.5,
+      "rhythmTag": "JEDA",
+      "narration": "Inilah kenapa motor listrik wajib memiliki BMS pintar dengan katup pelepas gas otomatis.",
+      "highlights": ["BMS pintar", "pelepas gas otomatis"],
+      "rigState": {
+        "explodeFactor": 0.6,
+        "xrayClip": 0.5,
+        "cameraPose": "iso-wide",
+        "activeCallouts": ["bms_circuit_board"],
+        "sfxCue": "verdict_stamp"
+      }
+    }
+  ]
+}
+

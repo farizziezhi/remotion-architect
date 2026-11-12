@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RemotionExplainerEpisodeSchema",
+  "description": "Contract for Remotion Explainer Architect Pro episodes, storyboards, and rigs.",
+  "type": "object",
+  "required": ["metadata", "contactSheet", "scenes"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["topic", "durationMode", "stylePreset", "aspectRatio", "fps"],
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "One-sentence core topic or question of the episode."
+        },
+        "durationMode": {
+          "type": "string",
+          "enum": ["60s", "90s", "120s"],
+          "default": "90s"
+        },
+        "stylePreset": {
+          "type": "string",
+          "enum": [
+            "taken-apart-blueprint",
+            "joni-bongkar-cutaway",
+            "zackd-cgi",
+            "dan-koe-glow",
+            "comic-vector"
+          ],
+          "default": "taken-apart-blueprint"
+        },
+        "aspectRatio": {
+          "type": "string",
+          "enum": ["16:9", "9:16"],
+          "default": "16:9"
+        },
+        "fps": {
+          "type": "integer",
+          "enum": [30, 60],
+          "default": 30
+        },
+        "voice": {
+          "type": "string",
+          "default": "id-ID-ArdiNeural"
+        }
+      }
+    },
+    "contactSheet": {
+      "type": "object",
+      "required": ["totalParts", "totalAssemblies", "assemblies", "uiCards"],
+      "properties": {
+        "totalParts": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "totalAssemblies": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "assemblies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "assemblyGroup", "materialKey"],
+            "properties": {
+              "id": { "type": "string" },
+              "label": { "type": "string" },
+              "assemblyGroup": { "type": "string" },
+              "geometry": {
+                "type": "string",
+                "enum": ["box", "cylinder", "torus", "sphere", "tube", "custom"]
+              },
+              "args": {
+                "type": "array",
+                "items": { "type": "number" }
+              },
+              "basePos": {
+                "type": "array",
+                "items": { "type": "number" },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "explodeOffset": {
+                "type": "array",
+                "items": { "type": "number" },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "materialKey": {
+                "type": "string",
+                "enum": [
+                  "shell",
+                  "structural",
+                  "core_component",
+                  "control_bms",
+                  "medium_fluid",
+                  "hazard_heat",
+                  "energy_current"
+                ]
+              },
+              "isOuterShell": { "type": "boolean", "default": false }
+            }
+          }
+        },
+        "uiCards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "cardType", "title"],
+            "properties": {
+              "id": { "type": "string" },
+              "cardType": {
+                "type": "string",
+                "enum": ["ThreeStageFlowCard", "ComparisonVerdictCard", "MythStampCard", "MetricTelemetryCard"]
+              },
+              "title": { "type": "string" },
+              "payload": { "type": "object" }
+            }
+          }
+        }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "timeSec", "durationSec", "rhythmTag", "narration", "rigState"],
+        "properties": {
+          "id": { "type": "string" },
+          "timeSec": { "type": "number" },
+          "durationSec": { "type": "number" },
+          "rhythmTag": {
+            "type": "string",
+            "enum": ["AKSI", "FOKUS", "JEDA"]
+          },
+          "narration": { "type": "string" },
+          "highlights": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "rigState": {
+            "type": "object",
+            "required": ["explodeFactor", "xrayClip", "cameraPose"],
+            "properties": {
+              "explodeFactor": {
+                "type": "number",
+                "minimum": 0.0,
+                "maximum": 1.0
+              },
+              "xrayClip": {
+                "type": "number",
+                "minimum": 0.0,
+                "maximum": 1.0
+              },
+              "cameraPose": {
+                "type": "string",
+                "enum": ["iso-wide", "iso-tight", "macro-core", "top-down", "cross-section", "front-flat"]
+              },
+              "activeCallouts": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "sfxCue": {
+                "type": ["string", "null"],
+                "enum": [
+                  null,
+                  "ui_pop",
+                  "servo_explode",
+                  "whoosh_xray",
+                  "electric_hum",
+                  "verdict_stamp"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
